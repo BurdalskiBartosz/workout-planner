@@ -1,9 +1,11 @@
 import { create } from "zustand";
+import { combine } from "zustand/middleware";
 
-type Store = {
-  str: string;
-};
-
-export const useStore = create<Store>(() => ({
-  str: "Hello World!",
-}));
+export const useStore = create(
+  combine(
+    {
+      str: "Hello World!",
+    },
+    () => ({})
+  )
+);
