@@ -1,10 +1,8 @@
 import type { Preview } from "@storybook/react";
 
 import { withThemeFromJSXProvider } from "@storybook/addon-themes";
-
-/* TODO: update import for your custom theme configurations */
-
-/* TODO: replace with your own global styles, or remove */
+import { theme } from "../src/styles/theme";
+import { ThemeProvider } from "@emotion/react";
 
 const preview: Preview = {
   parameters: {
@@ -16,7 +14,15 @@ const preview: Preview = {
     },
   },
 
-  decorators: [withThemeFromJSXProvider({})],
+  decorators: [
+    withThemeFromJSXProvider({
+      themes: {
+        light: theme,
+      },
+      defaultTheme: "light",
+      Provider: ThemeProvider,
+    }),
+  ],
 };
 
 export default preview;
