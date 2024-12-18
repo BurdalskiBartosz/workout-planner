@@ -1,15 +1,15 @@
 import type { Meta, StoryObj } from "@storybook/react";
 
-import { Nav } from "./index";
+import { Dashboard } from "./index";
 import { BrowserRouter } from "react-router";
 
 const meta = {
-  title: "Components/Nav",
+  title: "Pages/Dashboard",
   parameters: {
     layout: "centered",
   },
-  component: Nav,
-} satisfies Meta<typeof Nav>;
+  component: Dashboard,
+} satisfies Meta<typeof Dashboard>;
 
 export default meta;
 type Story = StoryObj<typeof meta>;
