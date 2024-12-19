@@ -4,6 +4,7 @@ import { PropsWithChildren } from "react";
 const theme = {
   colors: {
     gray: "#838383",
+    blue: "#3629b7",
   },
 };
 

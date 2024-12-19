@@ -1,6 +1,6 @@
 import { nav } from "@/constants/nav";
 import { StyledUl } from "./nav.styles";
-import { NavLink } from "../NavLink";
+import { NavLink } from "@/components/NavLink";
 
 const Nav = () => {
   return (

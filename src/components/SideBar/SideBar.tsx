@@ -1,9 +1,13 @@
-import { Nav } from "../Nav";
-import { StyledText, StyledWrapper } from "./sideBar.styles";
+import { Logo } from "@/components/Logo";
+import { Nav } from "@/components/Nav";
+import { StyledLogoWrapper, StyledText, StyledWrapper } from "./sideBar.styles";
 
 const SideBar = () => {
   return (
     <StyledWrapper>
+      <StyledLogoWrapper>
+        <Logo />
+      </StyledLogoWrapper>
       <StyledText>Menu</StyledText>
       <Nav />
     </StyledWrapper>

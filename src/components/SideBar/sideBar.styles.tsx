@@ -6,7 +6,12 @@ export const StyledWrapper = styled.div`
 `;
 
 export const StyledText = styled.p`
-  color: #3629b7;
-  font-size: 14px;
+  color: ${({ theme }) => theme.colors.blue};
+  font-weight: bold;
+  font-size: 18px;
   margin-bottom: 24px;
+`;
+
+export const StyledLogoWrapper = styled.div`
+  margin-bottom: 50px;
 `;

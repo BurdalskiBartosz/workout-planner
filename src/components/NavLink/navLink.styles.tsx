@@ -7,4 +7,9 @@ export const StyledNavLink = styled(NavLink)`
   column-gap: 20px;
   text-decoration: none;
   color: ${({ theme }) => theme.colors.gray};
+  font-weight: bold;
+  transition: color 0.3s;
+  &:hover {
+    color: ${({ theme }) => theme.colors.blue};
+  }
 `;
