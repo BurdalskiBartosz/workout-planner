@@ -1,8 +1,12 @@
 import logo from "@/assets/logo.png";
-import { StyledLogo } from "./logo.styles";
+import { StyledLogo, StyledLogoWrapper } from "./logo.styles";
 
 const Logo = () => {
-  return <StyledLogo src={logo} alt="Logo" />;
+  return (
+    <StyledLogoWrapper>
+      <StyledLogo src={logo} alt="Logo" />
+    </StyledLogoWrapper>
+  );
 };
 
 export { Logo };
