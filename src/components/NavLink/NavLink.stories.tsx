@@ -2,7 +2,7 @@ import type { Meta, StoryObj } from "@storybook/react";
 
 import { NavLink } from "./index";
 import { BrowserRouter } from "react-router";
-import { Category } from "../icons";
+import { Category } from "../../assets/icons";
 
 const meta = {
   title: "Components/NavLink",
