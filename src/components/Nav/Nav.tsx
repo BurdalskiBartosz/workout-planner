@@ -8,7 +8,7 @@ const Nav = () => {
       <StyledUl>
         {nav.map((item) => (
           <li key={item.label}>
-            <NavLink to={item.to} label={item.label} icon={item.icon()} />
+            <NavLink to={item.to} label={item.label} icon={item.icon} />
           </li>
         ))}
       </StyledUl>
