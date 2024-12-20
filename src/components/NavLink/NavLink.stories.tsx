@@ -2,7 +2,6 @@ import type { Meta, StoryObj } from "@storybook/react";
 
 import { NavLink } from "./index";
 import { BrowserRouter } from "react-router";
-import { Category } from "../../assets/icons";
 
 const meta = {
   title: "Components/NavLink",
@@ -32,7 +31,7 @@ export const WithIcon: Story = {
   args: {
     to: "/",
     label: "Link",
-    icon: <Category />,
+    icon: "category",
   },
   decorators: [
     (Story) => (
