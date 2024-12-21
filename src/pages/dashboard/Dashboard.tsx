@@ -1,18 +1,7 @@
-import styled from "@emotion/styled";
-import { SideBar } from "@/components/SideBar";
-
-const StyledWraper = styled.div({
-  display: "grid",
-  gridTemplateColumns: "250px 1fr",
-  height: "100vh",
-});
+import { AppTemplate } from "@/templates/AppTemplate";
 
 const Dashboard = () => {
-  return (
-    <StyledWraper>
-      <SideBar />
-    </StyledWraper>
-  );
+  return <AppTemplate>DASHBOARD</AppTemplate>;
 };
 
 export { Dashboard };

@@ -8,6 +8,7 @@ type Nav = {
 
 export const nav: Nav[] = [
   { to: "/", label: "Dashboard", icon: "category" },
+  { to: "/workout-plans", label: "Workout plans", icon: "calendar" },
   { to: "/", label: "Schedule", icon: "calendar" },
   { to: "/", label: "Reports", icon: "pieChart" },
   { to: "/", label: "Notifications", icon: "notification" },
