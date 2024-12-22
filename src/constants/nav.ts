@@ -1,4 +1,5 @@
 import { IconName } from "@/components/Icon/Icon";
+import { links } from "./links";
 
 type Nav = {
   to: string;
@@ -7,10 +8,10 @@ type Nav = {
 };
 
 export const nav: Nav[] = [
-  { to: "/", label: "Dashboard", icon: "category" },
-  { to: "/workout-plans", label: "Workout plans", icon: "calendar" },
-  { to: "/", label: "Schedule", icon: "calendar" },
-  { to: "/", label: "Reports", icon: "pieChart" },
-  { to: "/", label: "Notifications", icon: "notification" },
-  { to: "/", label: "Settings", icon: "settings" },
+  { to: links.dashboard, label: "Dashboard", icon: "category" },
+  { to: links.workoutPlans, label: "Workout plans", icon: "calendar" },
+  { to: links.schedules, label: "Schedule", icon: "calendar" },
+  { to: links.reports, label: "Reports", icon: "pieChart" },
+  { to: links.notifications, label: "Notifications", icon: "notification" },
+  { to: links.settings, label: "Settings", icon: "settings" },
 ];
