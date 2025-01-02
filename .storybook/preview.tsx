@@ -2,7 +2,7 @@ import React from "react";
 import type { Preview } from "@storybook/react";
 
 import { withThemeFromJSXProvider } from "@storybook/addon-themes";
-import { theme } from "../src/styles/theme";
+import { theme } from "../src/modules/app";
 import { css, Global, ThemeProvider } from "@emotion/react";
 
 const GlobalStyles = () => (

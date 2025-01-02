@@ -1,6 +1,6 @@
-import { nav } from "@/constants/nav";
+import { nav } from "@/modules/shared/constants/nav";
 import { StyledUl } from "./nav.styles";
-import { NavLink } from "@/components/NavLink";
+import { NavLink } from "@/modules/shared/ui/NavLink";
 
 const Nav = () => {
   return (

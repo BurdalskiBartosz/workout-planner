@@ -1,4 +1,4 @@
-import { Icon, type IconName } from "@/components/Icon";
+import { Icon, type IconName } from "@/modules/shared/ui/Icon";
 import { StyledNavLink } from "./navLink.styles";
 
 type NavLinkProps = {
