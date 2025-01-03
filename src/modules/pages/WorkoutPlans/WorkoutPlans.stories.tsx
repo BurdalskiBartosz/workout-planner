@@ -2,7 +2,7 @@ import type { Meta, StoryObj } from "@storybook/react";
 
 import { BrowserRouter, Route, Routes } from "react-router";
 import { WorkoutPlans } from "./index";
-import { AppTemplate } from "@/modules/app/templates/AppTemplate";
+import { AppTemplate } from "@/modules/app/templates/AppTemplate/AppTemplate";
 
 const meta = {
   title: "Pages/WorkoutPlans",
