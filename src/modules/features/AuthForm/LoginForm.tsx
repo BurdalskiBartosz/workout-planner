@@ -43,7 +43,7 @@ export default function LoginForm() {
         </button>
       </form>
       <button
-        className="mt-1 rounded bg-red-500 p-2"
+        className="bg-red-500 mt-1 rounded p-2"
         onClick={() => {
           signIn("github", {
             callbackUrl: "/app/dashboard",

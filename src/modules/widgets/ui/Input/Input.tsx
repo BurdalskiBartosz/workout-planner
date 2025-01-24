@@ -33,7 +33,7 @@ const Input = forwardRef<HTMLInputElement, InputProps>(
           {label}
         </label>
         {error && (
-          <p className="absolute -bottom-[18px] left-0 text-sm text-red-600">
+          <p className="text-red-600 absolute -bottom-[18px] left-0 text-sm">
             {error}
           </p>
         )}
