@@ -1,5 +1,5 @@
-import { SideBar } from "@/modules/widgets/ui/SideBar";
-import { Topbar } from "@/modules/widgets/ui/Topbar";
+import { SideBar } from "@/components/ui/SideBar";
+import { Topbar } from "@/components/ui/Topbar";
 import { ReactNode } from "react";
 
 const AppTemplate = ({
@@ -8,11 +8,11 @@ const AppTemplate = ({
   children: ReactNode;
 }>) => {
   return (
-    <div className="grid grid-cols-[250px_1fr] h-screen">
+    <div className="grid h-screen grid-cols-[250px_1fr]">
       <SideBar />
       <div>
         <Topbar />
-        <main className="py-5 px-7">{children}</main>
+        <main className="px-7 py-5">{children}</main>
       </div>
     </div>
   );

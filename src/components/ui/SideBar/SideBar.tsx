@@ -1,7 +1,7 @@
 "use client";
-import { nav } from "@/modules/shared/constants/nav";
-import { Logo } from "@/modules/shared/ui/Logo";
-import { NavLink } from "@/modules/widgets/components/NavLink";
+import { Logo } from "@/components/shared/ui/Logo";
+import { NavLink } from "@/components/ui/components/NavLink";
+import { nav } from "@/constants/nav";
 
 const SideBar = () => {
   return (

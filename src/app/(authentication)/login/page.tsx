@@ -1,4 +1,4 @@
-import LoginForm from "@/modules/features/AuthForm/LoginForm";
+import LoginForm from "@/components/features/forms/AuthForm/LoginForm";
 import Link from "next/link";
 
 const Login = () => {

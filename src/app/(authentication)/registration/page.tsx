@@ -1,4 +1,4 @@
-import RegistrationForm from "@/modules/features/AuthForm/RegistrationForm";
+import RegistrationForm from "@/components/features/forms/AuthForm/RegistrationForm";
 import Link from "next/link";
 
 const Registration = () => {

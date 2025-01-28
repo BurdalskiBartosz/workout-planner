@@ -1,5 +1,5 @@
 "use client";
-import { LogoutButton } from "@/modules/shared/ui/LogoutButton";
+import { LogoutButton } from "@/components/shared/ui/LogoutButton";
 
 const Topbar = () => {
   return (
