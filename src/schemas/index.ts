@@ -1,11 +1,13 @@
 import * as z from "zod";
 
-export const loginSchema = z.object({
+export const LoginSchema = z.object({
   email: z.string().email(),
-  password: z.string(),
+  password: z.string().min(1, {
+    message: "Password is required",
+  }),
 });
 
-export const registrationSchema = z
+export const RegistrationSchema = z
   .object({
     email: z.string().email(),
     login: z.string().min(5),

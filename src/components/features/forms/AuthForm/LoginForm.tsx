@@ -1,35 +1,46 @@
 "use client";
 import { login } from "@/actions/authentication/login";
 import Input from "@/components/ui/Input";
-import { LoginFormType } from "@/types/forms";
-import { loginSchema } from "@/utils/validations";
+import { LoginSchema } from "@/schemas";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { signIn } from "next-auth/react";
+import { useTransition } from "react";
 import { useForm } from "react-hook-form";
+import * as z from "zod";
 
 export default function LoginForm() {
+  const [isPending, startTransition] = useTransition();
+
   const {
     register,
     handleSubmit,
     formState: { errors },
-  } = useForm<LoginFormType>({
-    resolver: zodResolver(loginSchema),
+  } = useForm<z.infer<typeof LoginSchema>>({
+    resolver: zodResolver(LoginSchema),
+    defaultValues: {
+      email: "",
+      password: "",
+    },
   });
 
-  async function onSubmit(data: LoginFormType) {
-    await login("credentials", data);
+  async function onSubmit(data: z.infer<typeof LoginSchema>) {
+    startTransition(() => {
+      login("credentials", data);
+    });
   }
 
   return (
     <>
       <form onSubmit={handleSubmit(onSubmit)} className="grid gap-5">
         <Input
+          disabled={isPending}
           label="Email"
           placeholder="Enter your email..."
           error={errors.email?.message}
           {...register("email")}
         />
         <Input
+          disabled={isPending}
           label="Password"
           placeholder="Enter your password..."
           error={errors.password?.message}

@@ -1,20 +1,20 @@
 "use client";
 import Input from "@/components/ui/Input";
-import { RegistrationFormType } from "@/types/forms";
-import { registrationSchema } from "@/utils/validations";
+import { RegistrationSchema } from "@/schemas";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
+import * as z from "zod";
 
 export default function RegistrationForm() {
   const {
     register,
     handleSubmit,
     formState: { errors },
-  } = useForm<RegistrationFormType>({
-    resolver: zodResolver(registrationSchema),
+  } = useForm<z.infer<typeof RegistrationSchema>>({
+    resolver: zodResolver(RegistrationSchema),
   });
 
-  const onSubmit = (data: RegistrationFormType) => {
+  const onSubmit = (data: z.infer<typeof RegistrationSchema>) => {
     console.log(data);
   };
 

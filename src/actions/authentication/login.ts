@@ -1,13 +1,16 @@
 "use server";
 
 import { signIn, signOut } from "@/auth";
-import { LoginFormType } from "@/types/forms";
-import { loginSchema } from "@/utils/validations";
+import { LoginSchema } from "@/schemas";
 import { AuthError } from "next-auth";
+import * as z from "zod";
 
 export type LoginTypes = "credentials" | "github";
 
-export async function login(type: LoginTypes, values?: LoginFormType) {
+export const login = async (
+  type: LoginTypes,
+  values?: z.infer<typeof LoginSchema>,
+) => {
   try {
     if (type !== "credentials" || !values) {
       await signIn(type, {
@@ -16,7 +19,7 @@ export async function login(type: LoginTypes, values?: LoginFormType) {
       return;
     }
 
-    const parsedValues = loginSchema.safeParse(values);
+    const parsedValues = LoginSchema.safeParse(values);
 
     if (!parsedValues.success) {
       return { error: "Invalid data!" };
@@ -37,7 +40,7 @@ export async function login(type: LoginTypes, values?: LoginFormType) {
     }
     throw error;
   }
-}
+};
 
 export async function logout() {
   await signOut({ redirectTo: "/login" });

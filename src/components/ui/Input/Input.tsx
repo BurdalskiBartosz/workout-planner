@@ -3,7 +3,7 @@ import { forwardRef } from "react";
 import type { InputProps } from "./types";
 
 const Input = forwardRef<HTMLInputElement, InputProps>(
-  ({ label, fullWidth, error, placeholder, ...rest }, ref) => {
+  ({ label, fullWidth, error, placeholder, disabled, ...rest }, ref) => {
     return (
       <div
         className={cx("relative flex flex-col", {
@@ -20,8 +20,10 @@ const Input = forwardRef<HTMLInputElement, InputProps>(
             {
               "text-gray-600": !error,
               "border-red-600 text-red-600": error,
+              "border-gray-600/15 bg-gray-600/15": disabled,
             },
           )}
+          disabled={disabled}
           placeholder={placeholder}
           {...rest}
         />
