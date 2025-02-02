@@ -18,8 +18,10 @@ import {
   FormMessage,
 } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
+import { Separator } from "@/components/ui/separator";
 import { LoginSchema } from "@/schemas";
 import { zodResolver } from "@hookform/resolvers/zod";
+import { Github } from "lucide-react";
 import { signIn } from "next-auth/react";
 import { useTransition } from "react";
 import { useForm } from "react-hook-form";
@@ -86,26 +88,24 @@ export default function LoginForm() {
                 </FormItem>
               )}
             />
-            <Button
-              type="submit"
-              className="mt-2 w-full rounded-lg bg-black p-3 text-white"
-            >
+            <Button type="submit" className="w-full rounded-lg">
               Sign in
             </Button>
           </form>
         </Form>
       </CardContent>
-      <CardFooter>
+      <Separator className="mb-6" />
+      <CardFooter className="flex justify-center">
         <Button
-          className="mt-1"
           variant="outline"
+          size="icon"
           onClick={() => {
             signIn("github", {
               callbackUrl: "/app/dashboard",
             });
           }}
         >
-          Github
+          <Github />
         </Button>
       </CardFooter>
     </Card>
