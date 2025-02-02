@@ -1,6 +1,23 @@
 "use client";
 import { login } from "@/actions/authentication/login";
-import Input from "@/components/ui/Input";
+import { Button } from "@/components/ui/button";
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardFooter,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card";
+import {
+  Form,
+  FormControl,
+  FormField,
+  FormItem,
+  FormLabel,
+  FormMessage,
+} from "@/components/ui/form";
+import { Input } from "@/components/ui/input";
 import { LoginSchema } from "@/schemas";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { signIn } from "next-auth/react";
@@ -11,11 +28,7 @@ import * as z from "zod";
 export default function LoginForm() {
   const [isPending, startTransition] = useTransition();
 
-  const {
-    register,
-    handleSubmit,
-    formState: { errors },
-  } = useForm<z.infer<typeof LoginSchema>>({
+  const form = useForm<z.infer<typeof LoginSchema>>({
     resolver: zodResolver(LoginSchema),
     defaultValues: {
       email: "",
@@ -30,39 +43,71 @@ export default function LoginForm() {
   }
 
   return (
-    <>
-      <form onSubmit={handleSubmit(onSubmit)} className="grid gap-5">
-        <Input
-          disabled={isPending}
-          label="Email"
-          placeholder="Enter your email..."
-          error={errors.email?.message}
-          {...register("email")}
-        />
-        <Input
-          disabled={isPending}
-          label="Password"
-          placeholder="Enter your password..."
-          error={errors.password?.message}
-          {...register("password")}
-        />
-        <button
-          type="submit"
-          className="mt-6 rounded-lg bg-black p-3 text-white"
+    <Card className="mx-auto w-[400px]">
+      <CardHeader>
+        <CardTitle>Registration</CardTitle>
+        <CardDescription>Deploy your new project in one-click.</CardDescription>
+      </CardHeader>
+      <CardContent>
+        <Form {...form}>
+          <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-3">
+            <FormField
+              control={form.control}
+              name="email"
+              render={({ field }) => (
+                <FormItem>
+                  <FormLabel>Email</FormLabel>
+                  <FormControl>
+                    <Input
+                      disabled={isPending}
+                      placeholder="Enter your email..."
+                      {...field}
+                    />
+                  </FormControl>
+                  <FormMessage />
+                </FormItem>
+              )}
+            />
+            <FormField
+              control={form.control}
+              name="password"
+              render={({ field }) => (
+                <FormItem>
+                  <FormLabel>Password</FormLabel>
+                  <FormControl>
+                    <Input
+                      disabled={isPending}
+                      placeholder="Enter your password..."
+                      type="password"
+                      {...field}
+                    />
+                  </FormControl>
+                  <FormMessage />
+                </FormItem>
+              )}
+            />
+            <Button
+              type="submit"
+              className="mt-2 w-full rounded-lg bg-black p-3 text-white"
+            >
+              Sign in
+            </Button>
+          </form>
+        </Form>
+      </CardContent>
+      <CardFooter>
+        <Button
+          className="mt-1"
+          variant="outline"
+          onClick={() => {
+            signIn("github", {
+              callbackUrl: "/app/dashboard",
+            });
+          }}
         >
-          Sign in
-        </button>
-      </form>
-      <button
-        className="bg-red-500 mt-1 rounded p-2"
-        onClick={() => {
-          signIn("github", {
-            callbackUrl: "/app/dashboard",
-          });
-        }}
-      >
-        Github
-      </button>
-    </>
+          Github
+        </Button>
+      </CardFooter>
+    </Card>
   );
 }
