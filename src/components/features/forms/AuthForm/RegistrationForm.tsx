@@ -34,7 +34,7 @@ export default function RegistrationForm() {
     <Card className="mx-auto w-[400px]">
       <CardHeader>
         <CardTitle>Registration</CardTitle>
-        <CardDescription>Deploy your new project in one-click.</CardDescription>
+        <CardDescription>Fill the form to sign up.</CardDescription>
       </CardHeader>
       <CardContent>
         <Form {...form}>

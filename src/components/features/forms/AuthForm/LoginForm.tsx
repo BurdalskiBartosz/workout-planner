@@ -46,7 +46,7 @@ export default function LoginForm() {
     <Card className="mx-auto w-[400px]">
       <CardHeader>
         <CardTitle>Registration</CardTitle>
-        <CardDescription>Deploy your new project in one-click.</CardDescription>
+        <CardDescription>Fill the form to sign in.</CardDescription>
       </CardHeader>
       <CardContent>
         <Form {...form}>
