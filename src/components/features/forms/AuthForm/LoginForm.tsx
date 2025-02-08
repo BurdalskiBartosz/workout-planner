@@ -47,8 +47,8 @@ export default function LoginForm() {
   return (
     <Card className="mx-auto w-[400px]">
       <CardHeader>
-        <CardTitle>Registration</CardTitle>
-        <CardDescription>Fill the form to sign in.</CardDescription>
+        <CardTitle>Sign in</CardTitle>
+        <CardDescription>Fill the form to log in.</CardDescription>
       </CardHeader>
       <CardContent>
         <Form {...form}>

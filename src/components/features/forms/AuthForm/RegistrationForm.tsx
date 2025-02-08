@@ -33,8 +33,8 @@ export default function RegistrationForm() {
   return (
     <Card className="mx-auto w-[400px]">
       <CardHeader>
-        <CardTitle>Registration</CardTitle>
-        <CardDescription>Fill the form to sign up.</CardDescription>
+        <CardTitle>Sign up</CardTitle>
+        <CardDescription>Fill the form to create an account.</CardDescription>
       </CardHeader>
       <CardContent>
         <Form {...form}>
