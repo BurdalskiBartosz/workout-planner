@@ -9,15 +9,7 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
-import {
-  Form,
-  FormControl,
-  FormField,
-  FormItem,
-  FormLabel,
-  FormMessage,
-} from "@/components/ui/form";
-import { Input } from "@/components/ui/input";
+import { Form } from "@/components/ui/form";
 import { Separator } from "@/components/ui/separator";
 import { LoginSchema } from "@/schemas";
 import { zodResolver } from "@hookform/resolvers/zod";
@@ -26,11 +18,14 @@ import { signIn } from "next-auth/react";
 import { useTransition } from "react";
 import { useForm } from "react-hook-form";
 import * as z from "zod";
+import TextField from "../Inputs/TextField";
+
+type LoginFormType = z.infer<typeof LoginSchema>;
 
 export default function LoginForm() {
   const [isPending, startTransition] = useTransition();
 
-  const form = useForm<z.infer<typeof LoginSchema>>({
+  const form = useForm<LoginFormType>({
     resolver: zodResolver(LoginSchema),
     defaultValues: {
       email: "",
@@ -38,7 +33,7 @@ export default function LoginForm() {
     },
   });
 
-  async function onSubmit(data: z.infer<typeof LoginSchema>) {
+  async function onSubmit(data: LoginFormType) {
     startTransition(() => {
       login("credentials", data);
     });
@@ -53,41 +48,22 @@ export default function LoginForm() {
       <CardContent>
         <Form {...form}>
           <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-3">
-            <FormField
+            <TextField<LoginFormType>
               control={form.control}
+              disabled={isPending}
               name="email"
-              render={({ field }) => (
-                <FormItem>
-                  <FormLabel>Email</FormLabel>
-                  <FormControl>
-                    <Input
-                      disabled={isPending}
-                      placeholder="Enter your email..."
-                      {...field}
-                    />
-                  </FormControl>
-                  <FormMessage />
-                </FormItem>
-              )}
+              label="Email"
+              placeholder="Type your email..."
             />
-            <FormField
+            <TextField<LoginFormType>
               control={form.control}
+              disabled={isPending}
               name="password"
-              render={({ field }) => (
-                <FormItem>
-                  <FormLabel>Password</FormLabel>
-                  <FormControl>
-                    <Input
-                      disabled={isPending}
-                      placeholder="Enter your password..."
-                      type="password"
-                      {...field}
-                    />
-                  </FormControl>
-                  <FormMessage />
-                </FormItem>
-              )}
+              label="Password"
+              type="password"
+              placeholder="Type your password..."
             />
+
             <Button type="submit" className="w-full rounded-lg">
               Sign in
             </Button>
