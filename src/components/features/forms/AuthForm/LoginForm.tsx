@@ -53,7 +53,7 @@ export default function LoginForm() {
               disabled={isPending}
               name="email"
               label="Email"
-              placeholder="Type your email..."
+              placeholder="Enter your email..."
             />
             <TextField<LoginFormType>
               control={form.control}
@@ -61,7 +61,7 @@ export default function LoginForm() {
               name="password"
               label="Password"
               type="password"
-              placeholder="Type your password..."
+              placeholder="Enter your password..."
             />
 
             <Button type="submit" className="w-full rounded-lg">
