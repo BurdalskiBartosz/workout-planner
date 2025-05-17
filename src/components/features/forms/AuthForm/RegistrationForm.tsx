@@ -60,7 +60,6 @@ export default function RegistrationForm() {
               type="password"
               placeholder="Confirm password..."
             />
-
             <Button type="submit" className="r mt-2 w-full">
               Sign up
             </Button>
